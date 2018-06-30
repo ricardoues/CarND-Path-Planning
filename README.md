@@ -12,8 +12,7 @@ As a starting point, I used the code provided in the Project Walkthroug. After t
 
 https://towardsdatascience.com/planning-the-path-for-a-self-driving-car-on-a-highway-7134fddd8707
 
-From the simulator we get information about the other cars, we classify the cars in three categories (mutually exclusive)  
-car in my lane, car in left lane, and car in right lane. To keep this information and other useful information such as velocity of the car, we use struct (struct is similat to classes but without methods) lines of code 13-32.
+From the simulator we get information about the other cars, we classify the cars in three categories (mutually exclusive) car in my lane, car in left lane, and car in right lane. To keep this information and other useful information such as velocity of the car, we use struct (struct is similat to classes but without methods) lines of code 13-32.
 
 We define the following actions: 
 
@@ -22,7 +21,9 @@ We define the following actions:
 3. Change to the left lane 
 4. Change to the right lane
 
-We can model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action (continue in my lane, change to the left lane, and so on) and the transitions  
+Each of the above actions have a cost associated, we store these costs in the variables: cost_continue_in_my_lane, cost_change_left_lane, cost_change_right_lane, and cost_slow_down_in_my_lane. These costs are calculated with the function calculate_cost (lines of code 191-422) all the parameters of this function are passed by reference due to performance reasons (we don't create local copy of the variables passed as parameters). 
+
+We model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action (continue in my lane, change to the left lane, and so on) and the transitions represents condition that triggers determined action. For example the following code  
 
 
 ## How to compile the project
