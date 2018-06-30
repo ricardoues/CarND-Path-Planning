@@ -13,7 +13,7 @@ As a starting point, I used the code provided in the Project Walkthroug. After t
 https://towardsdatascience.com/planning-the-path-for-a-self-driving-car-on-a-highway-7134fddd8707
 
 From the simulator we get information about the other cars, we classify the cars in three categories (mutually exclusive)  
-car in my lane, car in left lane, and car in right lane.  
+car in my lane, car in left lane, and car in right lane. To keep the information of the classified cars we use struct (struct is similat to classes but without methods) lines of code 13-32.
 
 
 ## How to compile the project
