@@ -9,8 +9,10 @@ The code was compiled in a Dell Optiplex 3020 64 bit machine with Ubuntu 16.04.4
 ## How to compile the project
 Clone the repository and inside the build directory run the following commands:
 
+```bash
 make clean
 make
+```
 
 
 ## Running the project 
