@@ -50,6 +50,8 @@ if ( cost_continue_in_my_lane < cost_change_left_lane && cost_continue_in_my_lan
 }
 ```
 
+Based on the information of where the car is (center lane = 1, left lane = 0, and right lane = 2) and the lowest cost we can change the following parameters the lane and the ref_vel in the lines of code 791-945. Finally, we create a smooth trajectories in the lines of code 948-1075, this code was taken from the Project Walkthroug.
+
 ## How to compile the project
 Clone the repository and inside the build directory run the following commands:
 
