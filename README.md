@@ -6,7 +6,7 @@ Source code: [https://github.com/ricardoues/CarND-Path-Planning/tree/master/src]
 ## Reflection 
 The code was compiled in a Dell Optiplex 3020 64 bit machine with Ubuntu 16.04.4 installed. I run the code without any application running (there is latency if there are programs running). You can see the program in action in the following videos: 
 
-As a starting point I used the code provided in the Project Walkthroug. Moreover, I took ideas from the following blog post: 
+As a starting point, I used the code provided in the Project Walkthroug. After that, I took ideas from the following blog post: 
 
 https://towardsdatascience.com/planning-the-path-for-a-self-driving-car-on-a-highway-7134fddd8707
 
