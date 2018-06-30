@@ -22,7 +22,7 @@ We define the following actions:
 3. Change to the left lane 
 4. Change to the right lane
 
-We can model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action and the  
+We can model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action (continue in my lane, change to the left lane, and so on) and the transitions  
 
 
 ## How to compile the project
