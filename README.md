@@ -12,6 +12,9 @@ As a starting point, I used the code provided in the Project Walkthroug. After t
 
 https://towardsdatascience.com/planning-the-path-for-a-self-driving-car-on-a-highway-7134fddd8707
 
+From the simulator we get information about the other cars, we classify the cars in three categories (mutually exclusive)  
+car in my lane, car in left lane, and car in right lane.  
+
 
 ## How to compile the project
 Clone the repository and inside the build directory run the following commands:
