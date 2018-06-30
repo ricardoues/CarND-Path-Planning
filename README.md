@@ -7,12 +7,15 @@ Source code: [https://github.com/ricardoues/CarND-Path-Planning/tree/master/src]
 The code was compiled in a Dell Optiplex 3020 64 bit machine with Ubuntu 16.04.4 installed. I run the code without any application running (there is latency if there are programs running). You can see the program in action in the following videos:
 
 [https://www.youtube.com/watch?v=CTJBitu3lW4](https://www.youtube.com/watch?v=CTJBitu3lW4)
+[https://www.youtube.com/watch?v=IdrjWKYBNBY](https://www.youtube.com/watch?v=IdrjWKYBNBY)
+
+
 
 As a starting point, I used the code provided in the Project Walkthroug. After that, I took ideas from the following blog post: 
 
 https://towardsdatascience.com/planning-the-path-for-a-self-driving-car-on-a-highway-7134fddd8707
 
-From the simulator we get information about the other cars, we classify the cars in three categories (mutually exclusive) car in my lane, car in left lane, and car in right lane. To keep this information and other useful information such as velocity of the car, we use struct (struct is similat to classes but without methods) lines of code 13-32.
+From the simulator, we get information about the other cars, we classify the cars in three categories (mutually exclusive) car in my lane, car in left lane, and car in right lane. To keep this information and other useful information such as velocity of the car, we use struct (struct is similar to classes but without methods) to keep this information in the lines of code 13-32.
 
 We define the following actions: 
 
@@ -29,24 +32,22 @@ We model the problem of what action to take as a deterministic finite state mach
 if ( cost_continue_in_my_lane < cost_change_left_lane && cost_continue_in_my_lane < cost_change_right_lane && cost_continue_in_my_lane < cost_slow_down_in_my_lane)
 {
 
-    if ( cost_continue_in_my_lane >= -0.001  && cost_continue_in_my_lane <= 0.001)
+  if ( cost_continue_in_my_lane >= -0.001  && cost_continue_in_my_lane <= 0.001)
+   {
+     if(ref_vel < max_vel)
+     {
+       ref_vel += default_acceleration;
+       std::cout << "Optimal decision: continue in my lane." << endl;
+      }
+    }
+
+    else if ( cost_continue_in_my_lane >= 124.999 && cost_continue_in_my_lane <=125.001 )
     {
-        if(ref_vel < max_vel)
-        {
-                      ref_vel += default_acceleration;
-                      std::cout << "Optimal decision: continue in my lane." << endl;
-                    }
-                }
+      ref_vel -= 1.25*default_acceleration;
+      std::cout << "Optimal decision: continue in my lane." << endl;
+    }
 
-                else if ( cost_continue_in_my_lane >= 124.999 && cost_continue_in_my_lane <=125.001 )
-                {
-
-                    ref_vel -= 1.25*default_acceleration;
-                    std::cout << "Optimal decision: continue in my lane." << endl;
-                }
-
-              }
-
+}
 ```
 
 ## How to compile the project
