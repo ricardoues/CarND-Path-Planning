@@ -23,8 +23,31 @@ We define the following actions:
 
 Each of the above actions have a cost associated, we store these costs in the variables: cost_continue_in_my_lane, cost_change_left_lane, cost_change_right_lane, and cost_slow_down_in_my_lane. These costs are calculated with the function calculate_cost (lines of code 191-422) all the parameters of this function are passed by reference due to performance reasons (we don't create local copy of the variables passed as parameters). 
 
-We model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action (continue in my lane, change to the left lane, and so on) and the transitions represents condition that triggers determined action. For example the following code  
+We model the problem of what action to take as a deterministic finite state machine. The states represent each   possible action (continue in my lane, change to the left lane, and so on) and the transitions represents condition that triggers determined action. For example the following code shows the logic of the action continue in my lane: 
 
+```
+if ( cost_continue_in_my_lane < cost_change_left_lane && cost_continue_in_my_lane < cost_change_right_lane && cost_continue_in_my_lane < cost_slow_down_in_my_lane)
+{
+
+    if ( cost_continue_in_my_lane >= -0.001  && cost_continue_in_my_lane <= 0.001)
+    {
+        if(ref_vel < max_vel)
+        {
+                      ref_vel += default_acceleration;
+                      std::cout << "Optimal decision: continue in my lane." << endl;
+                    }
+                }
+
+                else if ( cost_continue_in_my_lane >= 124.999 && cost_continue_in_my_lane <=125.001 )
+                {
+
+                    ref_vel -= 1.25*default_acceleration;
+                    std::cout << "Optimal decision: continue in my lane." << endl;
+                }
+
+              }
+
+```
 
 ## How to compile the project
 Clone the repository and inside the build directory run the following commands:
