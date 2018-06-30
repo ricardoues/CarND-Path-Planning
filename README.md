@@ -22,7 +22,7 @@ We define the following actions:
 3. Change to the left lane 
 4. Change to the right lane
 
-
+We can model the problem of what action to take as a finite state machine. 
 
 
 ## How to compile the project
